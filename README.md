@@ -192,7 +192,7 @@ If you like this project please express your appreciation on LinkedIn.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank all those who helped me throughout this project.
+I would like to thank Gregoire Vella whose design on Behance inspired me to build this App. The template of my app was picked from Gregoire's design.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
