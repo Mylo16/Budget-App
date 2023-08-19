@@ -1,0 +1,23 @@
+<nav class="nav">
+  <div class="nav-container">
+    <%= link_to groups_path do%>
+    <%= image_tag 'back-icon.png', class: 'menu-icon' %>
+    <% end %>
+    <h1 class="cat-title">Transactions</h1>
+    <%= image_tag 'search-icon.png', class: 'search-icon' %>
+  </div>
+</nav>
+
+<%= render partial: 'shared/total_amount', locals: {total: @total_amount} %>
+<% if @transactions.blank?%>
+  <p>There are no transactions</p>
+<% else %>
+<% @transactions.each do |transaction|%>
+  <div class="card">
+    <p><%= transaction.name %></p>
+    <p>$<%= transaction.amount %></p>
+    <%= button_to "Remove", group_entity_path(id: transaction.id), method: :delete, class: "del-btn" %>
+  </div>
+<% end %>
+<% end %>
+<%= link_to "Add Transaction", new_group_entity_path, class: 'add-btn' %>

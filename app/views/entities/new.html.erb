@@ -1,0 +1,25 @@
+<nav class="nav">
+  <div class="nav-container">
+    <%= link_to group_entities_path do%>
+    <%= image_tag 'back-icon.png', class: 'menu-icon' %>
+    <% end %>
+    <h1 class="cat-title">Add Transaction</h1>
+  </div>
+</nav>
+
+<div class="cat-form-container">
+<%= form_with model: @transaction, url: group_entities_path(@group), class: "form", local: true do |f| %>
+  <div class="field flex">
+    <%= f.label :name, "Transaction Name", class: "form-label" %><br>
+    <%= f.text_field :name, class: "text-field" %>
+  </div>
+
+  <div class="field flex">
+    <%= f.label :amount, class: "form-label" %><br>
+    <%= f.number_field :amount, step: '0.01', class: "text-field" %>
+  </div>
+
+  <div class="field flex">
+    <%= f.submit "Add", class: "add-cat-btn" %>
+  </div>
+<% end %>
