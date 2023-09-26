@@ -1,0 +1,25 @@
+<nav class="nav">
+  <div class="nav-container">
+    <%= link_to groups_path do%>
+    <%= image_tag 'back-icon.png', class: 'menu-icon' %>
+    <% end %>
+    <h1 class="cat-title">Add Category</h1>
+  </div>
+</nav>
+<div class="cat-form-container">
+<%= form_with model: @group, local: true, class: 'form' do |f| %>
+  <div class="field flex">
+    <%= f.label :name, "Category", class: "form-label"%>
+    <%= f.text_field :name, placeholder: "Category Name", class: "text-field" %>
+  </div>
+
+  <div class="field flex">
+    <%= f.label :icon, "Icon", class: "form-label"%>
+    <%= f.text_field :icon, placeholder: "eg: https://icon.png", class: "text-field" %>
+  </div>
+
+  <div class="field flex">
+    <%= f.submit "Add", class: "add-cat-btn" %>
+  </div>
+<% end %>
+</div>

@@ -1,0 +1,25 @@
+<nav class="nav">
+  <div class="nav-container">
+    <%= link_to destroy_user_session_path, method: :delete do%>
+    <%= image_tag 'signout.png', class: 'menu-icon' %>
+    <% end %>
+    <h1 class="cat-title">Categories</h1>
+    <%= image_tag 'search-icon.png', class: 'search-icon' %>
+  </div>
+</nav>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<% @groups.each do |group|%>
+  <div class="card">
+    <img src=<%= group.icon %> alt="category icon" class='category-image'>
+    <div class="cat-detail">
+      <p class="cat-name"><%= link_to group.name, group_entities_path(group_id: group.id), class: 'link' %></p>
+      <p class="date"><%= group.created_at.strftime('%B %d, %Y') %></p>
+    </div>
+    <div>
+      <p class="amount-2">$<%= group.entities.sum(:amount) %></p>
+      <%= button_to "Delete", group_path(id: group.id), method: :delete, class: "del-btn" %>
+    </div>
+  </div>
+<% end %>
+<%= link_to "Add Category", new_group_path, class: 'add-btn' %>
